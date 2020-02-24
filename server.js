@@ -78,3 +78,16 @@ function viewAllDepartments() {
     start();
   });
 }
+
+function viewAllRoles() {
+  let query =
+    "SELECT * FROM role INNER JOIN department ON role.department_id = department.id";
+  connection.query(query, (err, res) => {
+    if (err) throw err;
+    console.log(res.length + "role found!");
+    console.table("All Roles:", res);
+    start();
+  });
+}
+
+// async function add function

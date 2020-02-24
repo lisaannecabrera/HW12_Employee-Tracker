@@ -1,5 +1,5 @@
 {
-  "name": "HW12_Employee-Tracker",
+  "name": "y",
   "version": "1.0.0",
   "description": "MySql",
   "main": "server.js",
@@ -17,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/lisaannecabrera/HW12_Employee-Tracker/issues"
   },
-  "homepage": "https://github.com/lisaannecabrera/HW12_Employee-Tracker#readme"
+  "homepage": "https://github.com/lisaannecabrera/HW12_Employee-Tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^7.0.4",
+    "mysql": "^2.18.1",
+    "util": "^0.12.1"
+  },
+  "devDependencies": {}
 }

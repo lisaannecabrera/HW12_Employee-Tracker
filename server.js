@@ -4,6 +4,7 @@ const mysql = require("mysql");
 const inquirer = require("inquirer");
 const consoletable = require("console.table");
 const util = require("util");
+// const title = require("asciiart-logo");
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -33,7 +34,8 @@ function start() {
         "Add Department",
         "Add Role",
         "Remove Employee",
-        "Update employee role"
+        "Update employee role",
+        "Log Out"
       ]
     })
     .then(answer => {
@@ -61,8 +63,6 @@ function start() {
           break;
         case "update employee role":
           updateEmployeeRole();
-          break;
-          start();
           break;
         default:
           connection.end();

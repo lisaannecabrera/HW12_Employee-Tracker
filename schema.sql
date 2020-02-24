@@ -5,20 +5,20 @@ USE employee_trackerDB
 
 CREATE TABLE department(
     id INTEGER NOT NULL,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(30) NOT NULL,
     PRIMARY KEY(id)
 );
 
-CREATE TABLE role (
+CREATE TABLE role(
     id INTEGER AUTO_INCREMENT NOT NULL,
-    title VARCHAR(50) NOT NULL,
+    title VARCHAR(30) NOT NULL,
     salary DECIMAL,
     department_id INTEGER,
-
+    PRIMARY KEY (id)
 
 );
 
-CREATE TABLE employees (
+CREATE TABLE employee(
     id INTEGER AUTO_INCREMENT NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,

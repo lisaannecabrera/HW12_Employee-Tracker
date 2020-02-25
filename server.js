@@ -185,6 +185,24 @@ async function addRole() {
         }
       }
     },
-    {}
+    {
+      name: "dept_id",
+      type: "list",
+      message: "choose a department",
+      choices: "department information"
+    }
   ]);
+  await connection.query(
+    "INSERT INTO role SET ?",
+    {
+      title: answer.title,
+      salary: answer.salary,
+      dept_id: answer.dept_id
+    },
+    err => {
+      if (err) throw err;
+      console.log("Your department was added!");
+      start();
+    }
+  );
 }

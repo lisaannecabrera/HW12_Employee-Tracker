@@ -164,9 +164,8 @@ async function addDepartment() {
 }
 
 async function addRole() {
-  try {
-    const response = await connection.query("SELECT * FROM department");
-  }
+  const response = await connection.query("SELECT * FROM department");
+
   const answer = await inquirer.prompt([
     {
       name: "title",

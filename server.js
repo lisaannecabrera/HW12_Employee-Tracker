@@ -90,4 +90,103 @@ function viewAllRoles() {
   });
 }
 
-// async function add function
+async function addEmployee() {
+  try {
+    const dpwait = await connection.query("SELECT * FROM department");
+    const dpInfo = {
+      name: dpInfo.name,
+      value: dpInfo.id
+    };
+    constmgwait = await connection.query(
+      "SELECT * FROM employee WHERE manager_id IS NULL"
+    );
+
+    const answer = await inquirer.prompt([
+      {
+        name: "first_name",
+        type: "input",
+        message: "What's your employee's first name?"
+      },
+      {
+        name: "last_name",
+        type: "input",
+        message: "What is your employee's last name?"
+      },
+      {
+        name: "role_id",
+        type: "list",
+        message: "What is the employee's role?"
+      },
+      {
+        name: "mgmt_id",
+        type: "list",
+        message: "who is the employee's manager?"
+      }
+    ]);
+    await connection.query(
+      "INSERT INTO employee SET ?",
+      {
+        first_name: answer.first_name,
+        last_name: answer.last_name,
+        role_id: answer.mgmt_id
+      },
+      err => {
+        if (err) throw err;
+        console.log("employee added!");
+        start();
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function addDepartment() {
+  const answer = await inquirer.prompt([
+    {
+      name: "name",
+      type: "input",
+      message: "What's your department name?"
+    }
+  ]);
+  await connection.query(
+    "INSERT INTO department SET ?",
+    { name: answer.name },
+    err => {
+      if (err) throw err;
+      console.log("department added!");
+      start();
+    }
+  );
+  if (err) {
+    consople.log(err);
+  }
+}
+
+async function addRole() {
+  try {
+    const response = await connection.query("SELECT * FROM department");
+  }
+  const answer = await inquirer.prompt([
+    {
+      name: "title",
+      type: "input",
+      message: "What's your role"
+    },
+    {
+      name: "salary",
+      type: "input",
+      message: "What's your salary?"
+      validate: answer => {
+        if (!isNaN(answer)){
+          return true;
+        } else {
+          throw error ("Please give a number!");
+        }
+      }
+    },
+    {
+      
+    }
+  ]);
+}

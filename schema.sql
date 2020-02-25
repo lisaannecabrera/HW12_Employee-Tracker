@@ -24,6 +24,7 @@ CREATE TABLE employee(
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     role_id INTEGER NOT NULL, 
+    manager_id INT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY (role_id) REFERENCES role (id),
     FOREIGN KEY (manager_id) REFERENCES employee (id)

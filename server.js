@@ -176,17 +176,15 @@ async function addRole() {
     {
       name: "salary",
       type: "input",
-      message: "What's your salary?"
+      message: "What's your salary?",
       validate: answer => {
-        if (!isNaN(answer)){
+        if (!isNaN(answer)) {
           return true;
         } else {
-          throw error ("Please give a number!");
+          throw error("Please give a number!");
         }
       }
     },
-    {
-      
-    }
+    {}
   ]);
 }
